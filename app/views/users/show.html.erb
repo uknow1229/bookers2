@@ -1,2 +1,39 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2>User info</h2>
+
+<table>
+  <tbody>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, size: "300x300" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+    <th><p>name</p></th>
+        <th><%= current_user.name %></th>
+      </tr>
+      <tr>
+        <th><p>introduction</p></th>
+        <th><%= current_user.introduction %></th>
+      </tr>
+  </tbody>
+</table>
+
+<h2>New book</h2>
+<%= form_with model: @book do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+
+  <p>Opinion</p>
+  <%= f.text_area :body %>
+<br>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+</table>

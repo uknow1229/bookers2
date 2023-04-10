@@ -1,2 +1,47 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h1>User info</h1>
+
+<table>
+  <tbody>
+     <% if @user.image.attached? %>
+        <%= image_tag @user.image, size: "300x300" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+
+    <tr>
+      <th>name</th>
+      <th>@current_user_name(current_user.name)</th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+    </tr>
+  </tbody>
+</table>
+
+<h2>New book</h2>
+<%= form_with model: @book do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+
+  <p>Opinion</p>
+  <%= f.text_area :body %>
+<br>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<h2>Users</h2>
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.image %></td>
+      <td><%= user.name %></td>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+    </tr>
+  </thead>
+</table>
