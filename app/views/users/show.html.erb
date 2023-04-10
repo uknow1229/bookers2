@@ -36,4 +36,10 @@
       <th>Opinion</th>
     </tr>
   </thead>
+  <tbody>
+    <% @books.each do |book| %>
+    <td><% book.title %></td>
+    <td><% book.opinion %></td>
+    <% end %>
+  </tbody>
 </table>
