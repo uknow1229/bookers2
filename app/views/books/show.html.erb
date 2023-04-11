@@ -1,5 +1,5 @@
 <h2>User info</h2>
-<%= image_tag current_user.get_profile_image(100,100) %>
+<%= image_tag @user.get_profile_image(100,100) %>
   <table>
     <tbody>
       <tr>
@@ -14,7 +14,7 @@
   </table>
 
 <h2>New book</h2>
-<%= form_with model: @books do |f| %>
+<%= form_with model: @book_new do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>
 
@@ -24,12 +24,18 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<h2>Books detail</h2>
+<h2>Book detail</h2>
 <table>
-  <thead>
+  <tbody>
     <tr>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
+        <td><%= image_tag @user.get_profile_image(100, 100) %></td>
+        <td><%= link_to @user.name , user_path %></td>
+        <td><%= link_to @book.title , book_path %></td>
+        <td><%= @book.body %></td>
+        <% if @book.user == current_user %>
+        <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+        <td><%= link_to "Destroy", book_path(@book.id),method: :delete %></td>
+          <% end %>
+      </tr>
+  </tbody>
 </table>

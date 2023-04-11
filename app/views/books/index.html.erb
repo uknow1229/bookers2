@@ -14,7 +14,8 @@
   </table>
 
 <h2>New book</h2>
-<%= form_with model: @books do |f| %>
+<%= form_with model: @book do |f| %>
+
   <p>Title</p>
   <%= f.text_field :title %>
 
@@ -24,16 +25,21 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<h2>Users</h2>
+<h2>Books</h2>
 <table>
-  <% @users.each do |user| %>
+  <thead>
     <tr>
-      <td><%= user.profile_image %></td>
-      <td><%= user.name %></td>
-    <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>Title</th>
+      <th>opinion</th>
     </tr>
   </thead>
-  <% end %>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
+        <td><%= link_to book.title , book_path(book.id) %></td>
+        <td><%= book.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
-  has_one_attached :image
+
+  has_one_attached :profile_image
 
   def get_profile_image(width, height)
   unless profile_image.attached?
