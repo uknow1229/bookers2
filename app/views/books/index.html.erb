@@ -1,3 +1,12 @@
+<% if @book.errors.any? %>
+  <h4><%= @book.errors.count %>errors prohibited this obj from being saved:</h4>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h2>User info</h2>
 <%= image_tag current_user.get_profile_image(100,100) %>
   <table>
@@ -14,6 +23,7 @@
   </table>
 
 <h2>New book</h2>
+
 <%= form_with model: @book do |f| %>
 
   <p>Title</p>
