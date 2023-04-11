@@ -3,7 +3,7 @@
   <%= form_with model: @user, url: user_session_path do |f| %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "current-name" %>
   </div>
 
   <div class="field">
