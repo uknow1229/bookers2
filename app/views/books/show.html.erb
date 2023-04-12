@@ -1,19 +1,6 @@
 <%= flash[:notice] %>
 
-<h2>User info</h2>
-<%= image_tag @user.get_profile_image(100,100) %>
-  <table>
-    <tbody>
-      <tr>
-        <th><p>name</p></th>
-        <th><%= current_user.name %></th>
-      </tr>
-      <tr>
-        <th><p>introduction</p></th>
-        <th><%= current_user.introduction %></th>
-      </tr>
-    </tbody>
-  </table>
+<%= render 'shared/user_info' %>
 
 <h2>New book</h2>
 <%= form_with model: @book_new do |f| %>
@@ -31,13 +18,13 @@
   <tbody>
     <tr>
         <td><%= image_tag @user.get_profile_image(100, 100) %></td>
-        <td><%= link_to @user.name , user_path %></td>
-        <td><%= link_to @book.title , book_path %></td>
+        <td><%= link_to @user.name , user_path(@user) %></td>
+        <td><%= link_to @book.title , book_path(@book) %></td>
         <td><%= @book.body %></td>
         <% if @book.user == current_user %>
-        <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-        <td><%= link_to "Destroy", book_path(@book.id),method: :delete %></td>
+        <td><%= link_to "Edit", edit_book_path(@book) %></td>
+        <td><%= link_to "Destroy", book_path(@book),method: :delete %></td>
           <% end %>
       </tr>
-  </tbody>
+  </tbody>s
 </table>

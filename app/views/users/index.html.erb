@@ -1,19 +1,4 @@
-<h2>User info</h2>
-  <%= image_tag current_user.get_profile_image(100, 100) %>
-  <table>
-    <tbody>
-      <tr>
-        <th><p>name</p></th>
-        <th><%= current_user.name %></th>
-      </tr>
-      <tr>
-        <th><p>introduction</p></th>
-        <th><%= current_user.introduction %></th>
-      </tr>
-    </tbody>
-  </table>
-
-<%= link_to "Edit",edit_user_path(current_user) %>
+<%= render 'shared/user_info' %>
 
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>

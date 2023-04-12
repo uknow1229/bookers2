@@ -14,9 +14,9 @@ class UsersController < ApplicationController
   def index
     # @current_user_name = current_user.name if current_user
     @users = User.all
-    # @user = current_user
+    @user = User.find(params[:id])
     @book = Book.new
-    @books = Book.all
+    # @books = Book.all
   end
 
   def show
@@ -36,13 +36,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    # if @user.id == current_user.id
-    #   redirect_to edit_user_path
-    # else
-    #   render :index
-    # end
+    user = User.find(params[:id])
+  if user.id == current_user.id
+    redirect_to user_path(current_user)
+  else
+    render :index
   end
+    @user = User.find(params[:id])
+  end
+
+  # def get_profile_image
+
+  # end
 
   private
   def user_params
