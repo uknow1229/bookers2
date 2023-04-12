@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
   <head>
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
@@ -10,11 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
     <header class="shadow-sm bg-dark text-white">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand p-3" href="/">Bookers</a>
+          <a class="navbar-brand" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,29 +24,30 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to "Home" , root_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-home fa-w-18") + "Home", root_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "Users" , users_path %>
+                 <%= link_to content_tag(:i, "", class: "fa fa-users fa-w-20") + "Users", users_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "Books" , books_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-book-open fa-w-18") + "Books", books_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                 <%= link_to content_tag(:i, "", class: "fa fa-sign-out-alt fa-w-16") + "Log out", destroy_user_session_path, class: "text-light" ,  method: :delete , style: "text-decoration:none;" %>
               </li>
+
             <% else %>
               <li>
-                <%= link_to "Home", root_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-home fa-w-18") + "Home", root_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "About", home_about_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-link fa-w-16") + "About", home_about_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "Sign Up", new_user_registration_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-user-plus fa-w-20") + "Sign Up", new_user_registration_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
               <li>
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to content_tag(:i, "", class: "fa fa-sign-in-alt fa-w-16") + "Log in", new_user_session_path, class: "text-light" , style: "text-decoration:none;" %>
               </li>
             <% end %>
             </ul>
@@ -56,10 +58,10 @@
     <main class="mb-auto">
     <%= yield %>
     </main>
-    <footer class="pt-5 pb-4">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-4">
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
           </div>
           </div>

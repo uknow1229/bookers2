@@ -1,10 +1,17 @@
 <h2>New book</h2>
-<%= form_with model: @book_new do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
+<%= form_with model: Book do |f| %>
 
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-<br>
-  <%= f.submit 'Create Book' %>
+  <div class="form-group">
+    <label for="book_title">Title</label>
+    <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+  </div>
+
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+  </div>
 <% end %>

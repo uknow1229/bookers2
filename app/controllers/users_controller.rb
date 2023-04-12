@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   def index
     # @current_user_name = current_user.name if current_user
     @users = User.all
-    @user = User.find(params[:id])
     @book = Book.new
+    @user = User.find(current_user.id)
     # @books = Book.all
   end
 
@@ -44,10 +44,6 @@ class UsersController < ApplicationController
   end
     @user = User.find(params[:id])
   end
-
-  # def get_profile_image
-
-  # end
 
   private
   def user_params

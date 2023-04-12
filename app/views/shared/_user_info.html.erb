@@ -1,6 +1,6 @@
 <h2>User info</h2>
   <%= image_tag @user.get_profile_image(100, 100) %>
-  <table>
+  <table class="table">
     <tbody>
       <tr>
         <th><p>name</p></th>
@@ -13,4 +13,9 @@
     </tbody>
   </table>
 
-<%= link_to "Edit", edit_user_path(current_user) %>
+  <div class="row">
+    <div class="btn btn-outline-secondary btn-block edit_user_95666">
+      <%= link_to content_tag(:i, "", class: "fa fa-user-cog fa-w-20") + "", edit_user_path(current_user),  style: "text-decoration:none; color:#6c757d;" %>
+    </div>
+  </div>
+

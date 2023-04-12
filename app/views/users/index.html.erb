@@ -1,31 +1,30 @@
-<%= render 'shared/user_info' %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/new_books' %>
+    </div>
 
-<h2>New book</h2>
-<%= form_with model: @book do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-<br>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
+<div class="col-md-8 offset-md-1">
 <h2>Users</h2>
-<table>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-    <td><%= image_tag user.get_profile_image(100, 100) %></td>
-    <td><%= user.name %></td>
-    <td><%= link_to 'Show' , user_path(user.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100, 100) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show' , user_path(user.id) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
