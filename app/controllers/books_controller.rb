@@ -30,7 +30,6 @@ class BooksController < ApplicationController
     # @user = User.find(params[:id])
     @user = @book.user
     # @book.user_id = current_user.id
-    # @books = Book.all
   end
 
   def update

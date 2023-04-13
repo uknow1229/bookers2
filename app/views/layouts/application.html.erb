@@ -24,32 +24,55 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-home fa-w-18") + "Home", user_path(current_user), class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                 <%= link_to content_tag(:i, "", class: "fa fa-users fa-w-20") + "Users", users_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-book-open fa-w-18") + "Books", books_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                 <%= link_to content_tag(:i, "", class: "fa fa-sign-out-alt fa-w-16") + "Log out", destroy_user_session_path, class: "text-light" ,  method: :delete , style: "text-decoration:none;" %>
-              </li>
-
-            <% else %>
-              <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-home fa-w-18") + "Home", root_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-link fa-w-16") + "About", home_about_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-user-plus fa-w-20") + "Sign up", new_user_registration_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-              <li>
-                <%= link_to content_tag(:i, "", class: "fa fa-sign-in-alt fa-w-16") + "Log in", new_user_session_path, class: "text-light" , style: "text-decoration:none;" %>
-              </li>
-            <% end %>
+                  <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+                    <svg class="fas fa-home"></svg>
+                    Home
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-users"></svg>
+                    Users
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to books_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-book-open"></svg>
+                    Books
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, class: "nav-link text-light", method: :delete do %>
+                    <svg class="fas fa-sign-out-alt"></svg>
+                    Log out
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to root_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-home"></svg>
+                    Home
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to home_about_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-link"></svg>
+                    About
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-user-plus"></svg>
+                    Sign up
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                    <svg class="fas fa-sign-in-alt"></svg>
+                    Log in
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
