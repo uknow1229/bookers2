@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.find(params[:id])
     @user.save
-    flash[:notice] = "Welcome! You have signed up successfully."
     redirect_to user_path(current_user.id)
   end
 
@@ -37,10 +36,8 @@ class UsersController < ApplicationController
 
   def edit
     user = User.find(params[:id])
-  if user.id == current_user.id
+  unless user.id == current_user.id
     redirect_to user_path(current_user)
-  else
-    render :index
   end
     @user = User.find(params[:id])
   end
