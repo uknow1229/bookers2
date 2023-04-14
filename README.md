@@ -1,24 +1,14 @@
-# README
+# 4-27 課題3：アプリケーションを作成してみよう：応用編
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 学んだポイント
+- 条件分岐の使用
+- indexページにidを渡す方法
+- モデルに必要なカラムの追加と削除
+- deviseの機能でできることの把握
+- bootstrapでのレイアウト調整
+- 部分テンプレートで変数を再定義すること
+- 部分テンプレートで変数を渡す方法（render partial）
+- link_toにFontAwesomeや画像を埋め込む方法
+- loginとsignupでフラッシュメッセージを分けること
+- バリデーションの記述は枠がないところでも適用されてしまうこと
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
