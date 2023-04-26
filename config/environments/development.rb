@@ -75,4 +75,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.hosts << "e1f50372654a488683aac93a51eb27d1.vfs.cloud9.ap-northeast-1.amazonaws.com"
   config.active_job.queue_adapter = :inline
+
+  MiniMagick.configure do |config|
+    config.cli = :graphicsmagick
+  end
 end
