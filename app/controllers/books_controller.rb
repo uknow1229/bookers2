@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
- before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @book = Book.new
@@ -22,14 +22,14 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     # @user = User.find(current_user.id)
+
   end
 
   def show
-    # @book_new = Book.new
     @book = Book.find(params[:id])
-    # @user = User.find(params[:id])
     @user = @book.user
-    # @book.user_id = current_user.id
+    @post_comment = PostComment.new
+    
   end
 
   def update
@@ -53,7 +53,7 @@ class BooksController < ApplicationController
 
   def destroy
     if @book = Book.find(params[:id])
-       @book.destroy
+      @book.destroy
       redirect_to books_path
     end
   end
