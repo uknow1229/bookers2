@@ -78,7 +78,12 @@
         </div>
       </nav>
     </header>
-    <main class="mb-auto">
+    <main class="container mb-auto">
+      <div class="row">
+        <div class="mx-auto mb-3">
+          <%= render 'partial/search' %>
+        </div>
+      </div>
     <%= yield %>
     </main>
     <footer>
