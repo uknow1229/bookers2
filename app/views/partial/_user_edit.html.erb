@@ -1,0 +1,7 @@
+<div class="row">
+  <% if current_user = user %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+    <svg class="fas fa-user-cog"></svg>
+    <% end %>
+  <% end %>
+</div>

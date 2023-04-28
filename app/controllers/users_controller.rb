@@ -44,17 +44,17 @@ class UsersController < ApplicationController
 
   def follows
     user = User.find(params[:id])
-    @users = user.following_user.page(params[:page]).per(3).reverse_order
+    @users = user.following_user
   end
 
   def followers
     user = User.find(params[:id])
-    @user = user.follower_user.page(params[:page]).per(3).reverse_order
+    @user = user.follower_user
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :title, :introduction, :profile_image)
+    params.require(:user).permit(:name, :title, :introduction, :profile_image )
   end
 
   # def is_matching_login_user
