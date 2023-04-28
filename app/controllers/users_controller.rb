@@ -11,17 +11,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    # @current_user_name = current_user.name if current_user
     @users = User.all
     @book = Book.new
     @user = User.find(current_user.id)
-    # @books = Book.all
   end
 
   def show
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def update
@@ -40,6 +40,16 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
     @user = User.find(params[:id])
+  end
+
+  def follows
+    user = User.find(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @user = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
   private
