@@ -21,15 +21,19 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-    # @user = User.find(current_user.id)
-
+    @user = User.find(current_user.id)
+    @new_books = @user.books
+    @post_comment = PostComment.new
+    @today_book = @new_books.created_today
+    @yesterday_book = @new_books.created_yesterday
+    @this_week_book = @new_books.created_this_week
+    @last_week_book = @new_books.created_last_week
   end
 
   def show
     @book = Book.find(params[:id])
     @user = @book.user
     @post_comment = PostComment.new
-    
   end
 
   def update

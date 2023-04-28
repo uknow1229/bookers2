@@ -1,5 +1,4 @@
 <table class="table table-hover table-inverse">
-  <!--検索対象モデルがUserの時 -->
   <% if @range == "User" %>
   <h2>Users search for "<%= @word %>"</h2>
     <thead>
@@ -18,7 +17,6 @@
       <% end %>
     </tbody>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
     <thead>
       <tr>
         <th></th>
