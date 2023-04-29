@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       get :follows, :followers
     end
+      get "search_form", to: "users#search_form"
       resource :relationships, only: [:create, :destroy]
   end
   resources :books do

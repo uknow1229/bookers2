@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+
+  # page
   def index
     @users = User.all
     @book = Book.new
@@ -17,6 +19,7 @@ class UsersController < ApplicationController
     # @data = [['6日前', @books.created_6days.count],['5日前', @books.created_5days.count],['4日前', @books.created_4days.count],['3日前', @books.created_3days.count],['2日前', @books.created_2days.count]]
   end
 
+  # page
   def show
     @user = User.find(params[:id])
     @book = Book.new
@@ -55,6 +58,13 @@ class UsersController < ApplicationController
   def followers
     user = User.find(params[:id])
     @user = user.follower_user
+  end
+
+  # button action
+  def search_form
+    @user = User.find(params[:user_id]) 
+    @books = @user.books.where(created_at: params[:created_at].to_date.all_day)
+    render :search_form
   end
 
   private
