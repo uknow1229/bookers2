@@ -34,6 +34,7 @@
           <% end %>
           </tbody>
       </table>
+      <%= render partial: "search_form", locals: { user: @user } %>
       <h3>投稿数の前日比・前週比</h3>
         <div class="table_width">
           <table class="table table-bordered">
@@ -51,7 +52,7 @@
               <% if @yesterday_book.count == 0 %>
                 <td>前日の投稿はなし</td>
               <% else %>
-                <td><% @the_day_before =   @today_book.count / @yesterday_book.count.to_f  %>
+                <td><% @the_day_before =   @today_book.count / @yesterday_book.count  %>
                 <%= (@the_day_before * 100).round %>%</td>
               <% end %>
               </tr>
@@ -74,7 +75,7 @@
                 <td>先週の投稿はなし</td>
               <% else %>
                 <td><% @the_week_before =   @this_week_book.count / @last_week_book.count  %>
-                <%= (@the_week_before * 100).round.to_i %>%</td>
+                <%= (@the_week_before * 100).round %>%</td>
               <% end %>
               </tr>
             </tbody>
@@ -109,6 +110,7 @@
           <canvas id="myChart"></canvas>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           <script>
+          $(document).on('turbolinks:load', function() {
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
               type: 'line',
@@ -147,8 +149,8 @@
                 },
               }
             });
+            });
           </script>
-          <%= render partial: "search_form", locals: { user: @user } %>
         </div>
       </div>
     </div>

@@ -19,8 +19,10 @@
                   <td><%= link_to @book.title , book_path(@book) %></td>
                   <td><%= @book.body %></td>
                     <% if @book.user == current_user %>
-                  <td><%= render "favorites/show" , book: @book %></td>
+
+                  <td id="favorite_buttons_<%= @book.id %>"><%= render partial: "favorites/favorite" , locals: { book: @book } %></td>
                   <td><p>コメント件数:<%= @book.post_comments.count %></p></td>
+
                   <td><%= link_to "Edit", edit_book_path(@book) , class: "btn btn-sm btn-success edit_book_72734" %></td>
                   <td><%= link_to "Destroy", book_path(@book), class: "btn btn-sm btn-danger destroy_book_72734", method: :delete, data: { confirm: "本当に消しますか？" } %></td>
                     <% end %>

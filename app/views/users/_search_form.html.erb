@@ -1,4 +1,4 @@
-<div class='col-md-5 mt-5'>
+<div class='col-md-5 mb-3'>
   <%= form_with url: user_search_form_path(user), method: :get, class: "row justify-content-center", local: false do |f| %>
     <div class="col-auto">
       <%= f.date_field :created_at, class: "form-control" %>
@@ -8,5 +8,5 @@
     </div>
   <% end %>
 </div>
-<div class="search_form_table mt-3">
+<div class="search_form_table mb-3">
 </div>
