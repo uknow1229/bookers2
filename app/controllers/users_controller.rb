@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @users = User.all
     @book = Book.new
     @user = User.find(current_user.id)
+    # @data = [['6日前', @books.created_6days.count],['5日前', @books.created_5days.count],['4日前', @books.created_4days.count],['3日前', @books.created_3days.count],['2日前', @books.created_2days.count]]
   end
 
   def show
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
     @books = @user.books
     @following_users = @user.following_user
     @follower_users = @user.follower_user
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
   end
 
   def update

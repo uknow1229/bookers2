@@ -22,12 +22,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = User.find(current_user.id)
-    @new_books = @user.books
     @post_comment = PostComment.new
-    @today_book = @new_books.created_today
-    @yesterday_book = @new_books.created_yesterday
-    @this_week_book = @new_books.created_this_week
-    @last_week_book = @new_books.created_last_week
   end
 
   def show
