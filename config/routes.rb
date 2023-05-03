@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
+  resources :groups, only: [:index, :show, :new, :create, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
