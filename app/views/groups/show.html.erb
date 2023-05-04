@@ -31,7 +31,7 @@
             <td><%= @group.introduction %></td>
             <td>
               <% @group.users.each do |user| %>
-                <%= user.name %><br>
+                <li style="list-style: none;"><%= user.name %></li>
               <% end %>
             </td>
             <td>
@@ -43,6 +43,7 @@
               <%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
             <% end %>
             </td>
+            <td><%= link_to 'Notice an Event',group_new_mail_path(@group), class: "btn btn-sm btn-info" %></td>
           </tr>
         </tbody>
       </table>
