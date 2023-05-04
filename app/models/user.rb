@@ -14,9 +14,7 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
-  has_many :group_users
-  has_many :groups, through: :group_users
-  has_one_attached :group_image
+  has_many :group_users, dependent: :destroy
 
   has_one_attached :profile_image
 
