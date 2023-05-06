@@ -16,6 +16,9 @@
         </td>
         <td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
+        <% if book.category.present? %>
+        <td><%= link_to book.category, tagsearches_search_path(word: book.category) %></td>
+        <% end %>
         <td class=<%= "favorite-" + book.id.to_s %> >
             <%= render "favorites/favorite", book: book %>
         </td>

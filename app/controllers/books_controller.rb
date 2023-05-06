@@ -77,7 +77,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :profile_image, :star)
+    params.require(:book).permit(:title, :body, :profile_image, :star, :category)
   end
 
   def correct_user

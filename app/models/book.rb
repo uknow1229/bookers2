@@ -5,6 +5,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :body, length: { maximum: 200 }, presence: true
+  validates :category, presence: true
 
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user

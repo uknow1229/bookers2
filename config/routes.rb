@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about', to: 'homes#about'
   get "search" => "searches#search"
+  get 'tagsearches/search', to: 'tagsearches#search'
 
   resources :users , :only => [:index, :show, :edit, :update,] do
     member do
