@@ -4,7 +4,7 @@
     <h1>Editing Book</h1>
     <%= flash[:notice] %>
 
-   <% if @book.errors.any? %>
+  <% if @book.errors.any? %>
   <h4><%= @book.errors.count %>errors prohibited this obj from being saved:</h4>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
@@ -12,21 +12,7 @@
     <% end %>
   </ul>
 <% end %>
+<%= render 'form', book: @book %>
 
-<%= form_with model: @book do |f| %>
-<div class="form-group">
-  <p>Title<p>
-  <%= f.text_field :title %>
-</div>
-<div class="form-group">
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-</div>
-<div class="form-group">
-  <%= f.submit 'Update Book',class:'btn btn-success' %>
-</div>
-<% end %>
-
-<%= link_to 'Show' , book_path(@book.id) %>
-|
+<%= link_to 'Show' , book_path(@book.id) %>|
 <%= link_to 'Back' , books_path %>

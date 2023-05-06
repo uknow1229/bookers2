@@ -30,11 +30,21 @@ class BooksController < ApplicationController
       }.reverse
     @user = User.find(current_user.id)
     @post_comment = PostComment.new
+
+    if params[:latest]
+        @books = Book.latest
+      elsif params[:old]
+        @books = Book.old
+      elsif params[:star_count]
+        @books = Book.star_count
+      else
+        @books = Book.all
+      end
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
+    # @user = @book.user
     @post_comment = PostComment.new
   end
 
@@ -67,7 +77,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :profile_image)
+    params.require(:book).permit(:title, :body, :profile_image, :star)
   end
 
   def correct_user

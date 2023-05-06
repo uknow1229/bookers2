@@ -9,15 +9,12 @@ class UsersController < ApplicationController
     @user.save
     redirect_to user_path(current_user.id)
   end
-
-
+  
   # page
   def index
     @users = User.all
     @book = Book.new
     @user = User.find(current_user.id)
-    # @groups = Group.all
-    # @data = [['6日前', @books.created_6days.count],['5日前', @books.created_5days.count],['4日前', @books.created_4days.count],['3日前', @books.created_3days.count],['2日前', @books.created_2days.count]]
   end
 
   # page
