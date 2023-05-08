@@ -79,19 +79,18 @@
       </nav>
     </header>
     <main class="container">
+      <p id="notice"><%= notice %></p>
       <div class="row d-flex">
         <div class="mb-3 mr-3">
           <%= render 'partial/search' %>
-          </div>
-          <div>
+        </div>
+        <div>
           <% if user_signed_in? %>
             <%= render 'tagsearches/tagsearch' %>
           <% end %>
         </div>
-        
-        
-</div>
       </div>
+    </div>
     <%= yield %>
     </main>
     <footer>

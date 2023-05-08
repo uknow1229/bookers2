@@ -1,6 +1,5 @@
 <div class="mt-3">
-  <%= form_with model: [ book, post_comment ] do |f| %>
-    <%= render 'partial/error_messages', object: f.object %>
+  <%= form_with model: [ book, post_comment ], local: false do |f| %>
     <%= f.text_area :comment, placeholder: "コメントをここに", class: "w-100" %><br>
     <%= f.submit "送信" %>
   <% end %>
