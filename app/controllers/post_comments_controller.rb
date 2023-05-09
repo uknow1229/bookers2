@@ -4,8 +4,9 @@ class PostCommentsController < ApplicationController
     @user = @book.user
     @post_comment = current_user.post_comments.new(post_comment_params)
     @post_comment.book_id = @book.id
-    @post_comment.save
-
+    unless @post_comment.save
+      render 'error'
+    end
   end
 
   def destroy

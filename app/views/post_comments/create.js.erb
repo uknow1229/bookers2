@@ -1,3 +1,6 @@
-$('#post-comments').html("<%= j(render "post_comments/show", book: @book) %>");
-$('#comment_count').html("<%= @book.post_comments.count %>")
+$("#post-comments").html("<%= j(render "post_comments/show", book: @book) %>");
+$("#comment_count").html("<%= @book.post_comments.count %>")
 $("textarea").val('');
+if ($("#comments-error").length) {
+  $("#comments-error").remove();
+}
